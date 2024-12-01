@@ -29,11 +29,11 @@ const PurchaseSuccessPage = () => {
 			handleCheckoutSuccess(sessionId);
 		} else {
 			setIsProcessing(false);
-			setError("No session ID found in the URL");
+			setError("No se encontró ningún ID de sesión en la URL");
 		}
 	}, [clearCart]);
 
-	if (isProcessing) return "Processing...";
+	if (isProcessing) return "Procesando...";
 
 	if (error) return `Error: ${error}`;
 
@@ -54,23 +54,23 @@ const PurchaseSuccessPage = () => {
 						<CheckCircle className='text-emerald-400 w-16 h-16 mb-4' />
 					</div>
 					<h1 className='text-2xl sm:text-3xl font-bold text-center text-emerald-400 mb-2'>
-						Purchase Successful!
+					¡Compra exitosa!
 					</h1>
 
 					<p className='text-gray-300 text-center mb-2'>
-						Thank you for your order. {"We're"} processing it now.
+					Gracias por tu pedido. Estamos {"procesándolo"} ahora.
 					</p>
 					<p className='text-emerald-400 text-center text-sm mb-6'>
-						Check your email for order details and updates.
+					Consulte su correo electrónico para obtener detalles y actualizaciones del pedido.
 					</p>
 					<div className='bg-gray-700 rounded-lg p-4 mb-6'>
 						<div className='flex items-center justify-between mb-2'>
-							<span className='text-sm text-gray-400'>Order number</span>
+							<span className='text-sm text-gray-400'>Número de orden</span>
 							<span className='text-sm font-semibold text-emerald-400'>#12345</span>
 						</div>
 						<div className='flex items-center justify-between'>
-							<span className='text-sm text-gray-400'>Estimated delivery</span>
-							<span className='text-sm font-semibold text-emerald-400'>3-5 business days</span>
+							<span className='text-sm text-gray-400'>Entrega estimada</span>
+							<span className='text-sm font-semibold text-emerald-400'>1 hora - 48 horas</span>
 						</div>
 					</div>
 
@@ -80,14 +80,14 @@ const PurchaseSuccessPage = () => {
              rounded-lg transition duration-300 flex items-center justify-center'
 						>
 							<HandHeart className='mr-2' size={18} />
-							Thanks for trusting us!
+							Gracias por confiar en nosotros!
 						</button>
 						<Link
 							to={"/"}
 							className='w-full bg-gray-700 hover:bg-gray-600 text-emerald-400 font-bold py-2 px-4 
             rounded-lg transition duration-300 flex items-center justify-center'
 						>
-							Continue Shopping
+							Continuar comprando
 							<ArrowRight className='ml-2' size={18} />
 						</Link>
 					</div>

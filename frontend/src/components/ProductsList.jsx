@@ -21,32 +21,32 @@ const ProductsList = () => {
 							scope='col'
 							className='px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider'
 						>
-							Product
+							Producto
 						</th>
 						<th
 							scope='col'
 							className='px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider'
 						>
-							Price
+							Precio
 						</th>
 						<th
 							scope='col'
 							className='px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider'
 						>
-							Category
+							Categoría
 						</th>
 
 						<th
 							scope='col'
 							className='px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider'
 						>
-							Featured
+							Presentado
 						</th>
 						<th
 							scope='col'
 							className='px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider'
 						>
-							Actions
+							Comportamiento
 						</th>
 					</tr>
 				</thead>

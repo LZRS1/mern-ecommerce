@@ -71,7 +71,7 @@ export const updateQuantity = async (req, res) => {
 			await user.save();
 			res.json(user.cartItems);
 		} else {
-			res.status(404).json({ message: "Product not found" });
+			res.status(404).json({ message: "Producto no encontrado" });
 		}
 	} catch (error) {
 		console.log("Error in updateQuantity controller", error.message);

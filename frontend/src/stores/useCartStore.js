@@ -14,7 +14,7 @@ export const useCartStore = create((set, get) => ({
 			const response = await axios.get("/coupons");
 			set({ coupon: response.data });
 		} catch (error) {
-			console.error("Error fetching coupon:", error);
+			console.error("Error al obtener el cupón:", error);
 		}
 	},
 	applyCoupon: async (code) => {
@@ -22,15 +22,15 @@ export const useCartStore = create((set, get) => ({
 			const response = await axios.post("/coupons/validate", { code });
 			set({ coupon: response.data, isCouponApplied: true });
 			get().calculateTotals();
-			toast.success("Coupon applied successfully");
+			toast.success("Cupón aplicado exitosamente");
 		} catch (error) {
-			toast.error(error.response?.data?.message || "Failed to apply coupon");
+			toast.error(error.response?.data?.message || "No se pudo aplicar el cupón");
 		}
 	},
 	removeCoupon: () => {
 		set({ coupon: null, isCouponApplied: false });
 		get().calculateTotals();
-		toast.success("Coupon removed");
+		toast.success("Cupón eliminado");
 	},
 
 	getCartItems: async () => {
@@ -40,7 +40,7 @@ export const useCartStore = create((set, get) => ({
 			get().calculateTotals();
 		} catch (error) {
 			set({ cart: [] });
-			toast.error(error.response.data.message || "An error occurred");
+			toast.error(error.response.data.message || "Se produjo un error");
 		}
 	},
 	clearCart: async () => {
@@ -49,7 +49,7 @@ export const useCartStore = create((set, get) => ({
 	addToCart: async (product) => {
 		try {
 			await axios.post("/cart", { productId: product._id });
-			toast.success("Product added to cart");
+			toast.success("Producto agregado al carrito");
 
 			set((prevState) => {
 				const existingItem = prevState.cart.find((item) => item._id === product._id);
@@ -62,7 +62,7 @@ export const useCartStore = create((set, get) => ({
 			});
 			get().calculateTotals();
 		} catch (error) {
-			toast.error(error.response.data.message || "An error occurred");
+			toast.error(error.response.data.message || "Se produjo un error");
 		}
 	},
 	removeFromCart: async (productId) => {

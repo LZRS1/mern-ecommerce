@@ -26,8 +26,8 @@ export const useProductStore = create((set) => ({
 			const response = await axios.get("/products");
 			set({ products: response.data.products, loading: false });
 		} catch (error) {
-			set({ error: "Failed to fetch products", loading: false });
-			toast.error(error.response.data.error || "Failed to fetch products");
+			set({ error: "No se pudieron recuperar los productos", loading: false });
+			toast.error(error.response.data.error || "No se pudieron recuperar los productos");
 		}
 	},
 	fetchProductsByCategory: async (category) => {
@@ -36,8 +36,8 @@ export const useProductStore = create((set) => ({
 			const response = await axios.get(`/products/category/${category}`);
 			set({ products: response.data.products, loading: false });
 		} catch (error) {
-			set({ error: "Failed to fetch products", loading: false });
-			toast.error(error.response.data.error || "Failed to fetch products");
+			set({ error: "No se pudieron recuperar los productos", loading: false });
+			toast.error(error.response.data.error || "No se pudieron recuperar los productos");
 		}
 	},
 	deleteProduct: async (productId) => {
@@ -50,7 +50,7 @@ export const useProductStore = create((set) => ({
 			}));
 		} catch (error) {
 			set({ loading: false });
-			toast.error(error.response.data.error || "Failed to delete product");
+			toast.error(error.response.data.error || "No se pudo eliminar el producto");
 		}
 	},
 	toggleFeaturedProduct: async (productId) => {
@@ -66,7 +66,7 @@ export const useProductStore = create((set) => ({
 			}));
 		} catch (error) {
 			set({ loading: false });
-			toast.error(error.response.data.error || "Failed to update product");
+			toast.error(error.response.data.error || "No se pudo actualizar el producto");
 		}
 	},
 	fetchFeaturedProducts: async () => {
@@ -75,8 +75,8 @@ export const useProductStore = create((set) => ({
 			const response = await axios.get("/products/featured");
 			set({ products: response.data, loading: false });
 		} catch (error) {
-			set({ error: "Failed to fetch products", loading: false });
-			console.log("Error fetching featured products:", error);
+			set({ error: "No se pudieron recuperar los productos", loading: false });
+			console.log("No se pudieron recuperar los productos", error);
 		}
 	},
 }));

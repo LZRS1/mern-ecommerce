@@ -16,17 +16,17 @@ export const validateCoupon = async (req, res) => {
 		const coupon = await Coupon.findOne({ code: code, userId: req.user._id, isActive: true });
 
 		if (!coupon) {
-			return res.status(404).json({ message: "Coupon not found" });
+			return res.status(404).json({ message: "Cupón no encontrado" });
 		}
 
 		if (coupon.expirationDate < new Date()) {
 			coupon.isActive = false;
 			await coupon.save();
-			return res.status(404).json({ message: "Coupon expired" });
+			return res.status(404).json({ message: "Cupón caducado" });
 		}
 
 		res.json({
-			message: "Coupon is valid",
+			message: "El cupón es válido",
 			code: coupon.code,
 			discountPercentage: coupon.discountPercentage,
 		});

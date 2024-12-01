@@ -30,7 +30,7 @@ const AdminPage = () => {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.8 }}
 				>
-					Admin Dashboard
+					Panel de administración
 				</motion.h1>
 
 				<div className='flex justify-center mb-8'>

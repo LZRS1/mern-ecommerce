@@ -58,13 +58,13 @@ const EmptyCartUI = () => (
 		transition={{ duration: 0.5 }}
 	>
 		<ShoppingCart className='h-24 w-24 text-gray-300' />
-		<h3 className='text-2xl font-semibold '>Your cart is empty</h3>
-		<p className='text-gray-400'>Looks like you {"haven't"} added anything to your cart yet.</p>
+		<h3 className='text-2xl font-semibold '>Tu carrito está vacío</h3>
+		<p className='text-gray-400'>Parece que todavía {"no has agregado"} nada a tu carrito.</p>
 		<Link
 			className='mt-4 rounded-md bg-emerald-500 px-6 py-2 text-white transition-colors hover:bg-emerald-600'
 			to='/'
 		>
-			Start Shopping
+			Empezar a comprar
 		</Link>
 	</motion.div>
 );

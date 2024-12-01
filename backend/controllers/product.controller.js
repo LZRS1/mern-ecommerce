@@ -7,8 +7,8 @@ export const getAllProducts = async (req, res) => {
 		const products = await Product.find({}); // find all products
 		res.json({ products });
 	} catch (error) {
-		console.log("Error in getAllProducts controller", error.message);
-		res.status(500).json({ message: "Server error", error: error.message });
+		console.log("Error en el controlador getAllProducts", error.message);
+		res.status(500).json({ message: "error del servidor", error: error.message });
 	}
 };
 
@@ -25,7 +25,7 @@ export const getFeaturedProducts = async (req, res) => {
 		featuredProducts = await Product.find({ isFeatured: true }).lean();
 
 		if (!featuredProducts) {
-			return res.status(404).json({ message: "No featured products found" });
+			return res.status(404).json({ message: "No se encontraron productos destacados" });
 		}
 
 		// store in redis for future quick access
@@ -34,8 +34,8 @@ export const getFeaturedProducts = async (req, res) => {
 
 		res.json(featuredProducts);
 	} catch (error) {
-		console.log("Error in getFeaturedProducts controller", error.message);
-		res.status(500).json({ message: "Server error", error: error.message });
+		console.log("Error en el controlador getFeaturedProducts", error.message);
+		res.status(500).json({ message: "error del servidor", error: error.message });
 	}
 };
 
@@ -46,7 +46,7 @@ export const createProduct = async (req, res) => {
 		let cloudinaryResponse = null;
 
 		if (image) {
-			cloudinaryResponse = await cloudinary.uploader.upload(image, { folder: "products" });
+			cloudinaryResponse = await cloudinary.uploader.upload(image, { folder: "productos" });
 		}
 
 		const product = await Product.create({
@@ -59,8 +59,8 @@ export const createProduct = async (req, res) => {
 
 		res.status(201).json(product);
 	} catch (error) {
-		console.log("Error in createProduct controller", error.message);
-		res.status(500).json({ message: "Server error", error: error.message });
+		console.log("Error en el controlador createProduct", error.message);
+		res.status(500).json({ message: "error del servidor", error: error.message });
 	}
 };
 
@@ -69,25 +69,25 @@ export const deleteProduct = async (req, res) => {
 		const product = await Product.findById(req.params.id);
 
 		if (!product) {
-			return res.status(404).json({ message: "Product not found" });
+			return res.status(404).json({ message: "Producto no encontrado" });
 		}
 
 		if (product.image) {
 			const publicId = product.image.split("/").pop().split(".")[0];
 			try {
 				await cloudinary.uploader.destroy(`products/${publicId}`);
-				console.log("deleted image from cloduinary");
+				console.log("imagen eliminada de cloduinary");
 			} catch (error) {
-				console.log("error deleting image from cloduinary", error);
+				console.log("error al eliminar la imagen de cloduinary", error);
 			}
 		}
 
 		await Product.findByIdAndDelete(req.params.id);
 
-		res.json({ message: "Product deleted successfully" });
+		res.json({ message: "Producto eliminado exitosamente" });
 	} catch (error) {
-		console.log("Error in deleteProduct controller", error.message);
-		res.status(500).json({ message: "Server error", error: error.message });
+		console.log("Error al eliminar el controlador de producto", error.message);
+		res.status(500).json({ message: "error del servidor", error: error.message });
 	}
 };
 
@@ -110,8 +110,8 @@ export const getRecommendedProducts = async (req, res) => {
 
 		res.json(products);
 	} catch (error) {
-		console.log("Error in getRecommendedProducts controller", error.message);
-		res.status(500).json({ message: "Server error", error: error.message });
+		console.log("Error en el controlador getRecommendedProducts", error.message);
+		res.status(500).json({ message: "error del servidor", error: error.message });
 	}
 };
 
@@ -121,8 +121,8 @@ export const getProductsByCategory = async (req, res) => {
 		const products = await Product.find({ category });
 		res.json({ products });
 	} catch (error) {
-		console.log("Error in getProductsByCategory controller", error.message);
-		res.status(500).json({ message: "Server error", error: error.message });
+		console.log("Error en el controlador getProductsByCategory", error.message);
+		res.status(500).json({ message: "error del servidor", error: error.message });
 	}
 };
 
@@ -135,11 +135,11 @@ export const toggleFeaturedProduct = async (req, res) => {
 			await updateFeaturedProductsCache();
 			res.json(updatedProduct);
 		} else {
-			res.status(404).json({ message: "Product not found" });
+			res.status(404).json({ message: "Producto no encontrado" });
 		}
 	} catch (error) {
-		console.log("Error in toggleFeaturedProduct controller", error.message);
-		res.status(500).json({ message: "Server error", error: error.message });
+		console.log("Error en el controlador toggleFeaturedProduct", error.message);
+		res.status(500).json({ message: "error del servidor", error: error.message });
 	}
 };
 
@@ -150,6 +150,6 @@ async function updateFeaturedProductsCache() {
 		const featuredProducts = await Product.find({ isFeatured: true }).lean();
 		await redis.set("featured_products", JSON.stringify(featuredProducts));
 	} catch (error) {
-		console.log("error in update cache function");
+		console.log("error en la función de actualización de caché");
 	}
 }

@@ -13,7 +13,7 @@ const Navbar = () => {
 			<div className='container mx-auto px-4 py-3'>
 				<div className='flex flex-wrap justify-between items-center'>
 					<Link to='/' className='text-2xl font-bold text-emerald-400 items-center space-x-2 flex'>
-						E-Commerce
+					L4ZARUS CORP TOOLS
 					</Link>
 
 					<nav className='flex flex-wrap items-center gap-4'>
@@ -22,7 +22,7 @@ const Navbar = () => {
 							className='text-gray-300 hover:text-emerald-400 transition duration-300
 					 ease-in-out'
 						>
-							Home
+							Inicio
 						</Link>
 						{user && (
 							<Link
@@ -49,7 +49,7 @@ const Navbar = () => {
 								to={"/secret-dashboard"}
 							>
 								<Lock className='inline-block mr-1' size={18} />
-								<span className='hidden sm:inline'>Dashboard</span>
+								<span className='hidden sm:inline'>Panel</span>
 							</Link>
 						)}
 
@@ -60,7 +60,7 @@ const Navbar = () => {
 								onClick={logout}
 							>
 								<LogOut size={18} />
-								<span className='hidden sm:inline ml-2'>Log Out</span>
+								<span className='hidden sm:inline ml-2'>Finalizar la sesión</span>
 							</button>
 						) : (
 							<>
@@ -70,7 +70,7 @@ const Navbar = () => {
 									rounded-md flex items-center transition duration-300 ease-in-out'
 								>
 									<UserPlus className='mr-2' size={18} />
-									Sign Up
+									Inscribirse
 								</Link>
 								<Link
 									to={"/login"}
@@ -78,7 +78,7 @@ const Navbar = () => {
 									rounded-md flex items-center transition duration-300 ease-in-out'
 								>
 									<LogIn className='mr-2' size={18} />
-									Login
+									Acceso
 								</Link>
 							</>
 						)}

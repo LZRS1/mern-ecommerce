@@ -27,7 +27,7 @@ const SignUpPage = () => {
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.8 }}
 			>
-				<h2 className='mt-6 text-center text-3xl font-extrabold text-emerald-400'>Create your account</h2>
+				<h2 className='mt-6 text-center text-3xl font-extrabold text-emerald-400'>Crea tu cuenta</h2>
 			</motion.div>
 
 			<motion.div
@@ -40,7 +40,7 @@ const SignUpPage = () => {
 					<form onSubmit={handleSubmit} className='space-y-6'>
 						<div>
 							<label htmlFor='name' className='block text-sm font-medium text-gray-300'>
-								Full name
+							Nombre completo
 							</label>
 							<div className='mt-1 relative rounded-md shadow-sm'>
 								<div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
@@ -84,7 +84,7 @@ const SignUpPage = () => {
 
 						<div>
 							<label htmlFor='password' className='block text-sm font-medium text-gray-300'>
-								Password
+							Contraseña
 							</label>
 							<div className='mt-1 relative rounded-md shadow-sm'>
 								<div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
@@ -105,7 +105,7 @@ const SignUpPage = () => {
 
 						<div>
 							<label htmlFor='confirmPassword' className='block text-sm font-medium text-gray-300'>
-								Confirm Password
+							Confirmar Contraseña
 							</label>
 							<div className='mt-1 relative rounded-md shadow-sm'>
 								<div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
@@ -135,21 +135,21 @@ const SignUpPage = () => {
 							{loading ? (
 								<>
 									<Loader className='mr-2 h-5 w-5 animate-spin' aria-hidden='true' />
-									Loading...
+									Cargando...
 								</>
 							) : (
 								<>
 									<UserPlus className='mr-2 h-5 w-5' aria-hidden='true' />
-									Sign up
+									Inscribirse
 								</>
 							)}
 						</button>
 					</form>
 
 					<p className='mt-8 text-center text-sm text-gray-400'>
-						Already have an account?{" "}
+					¿Ya tienes una cuenta?{" "}
 						<Link to='/login' className='font-medium text-emerald-400 hover:text-emerald-300'>
-							Login here <ArrowRight className='inline h-4 w-4' />
+						Inicia sesión aquí <ArrowRight className='inline h-4 w-4' />
 						</Link>
 					</p>
 				</div>

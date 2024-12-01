@@ -8,7 +8,7 @@ const ProductCard = ({ product }) => {
 	const { addToCart } = useCartStore();
 	const handleAddToCart = () => {
 		if (!user) {
-			toast.error("Please login to add products to cart", { id: "login" });
+			toast.error("Por favor inicie sesión para agregar productos al carrito", { id: "login" });
 			return;
 		} else {
 			// add to cart
@@ -36,7 +36,7 @@ const ProductCard = ({ product }) => {
 					onClick={handleAddToCart}
 				>
 					<ShoppingCart size={22} className='mr-2' />
-					Add to cart
+					Añadir a la cesta
 				</button>
 			</div>
 		</div>

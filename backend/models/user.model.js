@@ -5,19 +5,19 @@ const userSchema = new mongoose.Schema(
 	{
 		name: {
 			type: String,
-			required: [true, "Name is required"],
+			required: [true, "El nombre es obligatorio"],
 		},
 		email: {
 			type: String,
-			required: [true, "Email is required"],
+			required: [true, "Se requiere correo electrónico"],
 			unique: true,
 			lowercase: true,
 			trim: true,
 		},
 		password: {
 			type: String,
-			required: [true, "Password is required"],
-			minlength: [6, "Password must be at least 6 characters long"],
+			required: [true, "Se requiere contraseña"],
+			minlength: [6, "La contraseña debe tener al menos 6 caracteres"],
 		},
 		cartItems: [
 			{
